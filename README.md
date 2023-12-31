@@ -81,7 +81,7 @@ ___
   <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/9eb63188-710f-4ccf-8392-d65a40a0c1e0">
 </p>
 
-This is the main menu shown when the game is started
+This is the main menu shown when the game is started.
 
 
 <p align="center">
@@ -132,6 +132,8 @@ ___
 * The statistics are stored in an external file.
 
 * The player can move using the arrow keys. `←` `→` `↑` `↓`
+
+* The level can be paused and unpaused by pressing `enter`. Note that pressing `esc` while paused returns to the start menu.
 
 * The ball only moves diagonally and can change its direction randomly.
 
