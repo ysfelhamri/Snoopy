@@ -28,7 +28,7 @@ ___
 
 ## Handling Interactions
 
-In order to handle interaction between the different entities in the game their data is stored into a two dimensional array and replaced with spacial symbols for the graphical interface :
+In order to handle interaction between the different entities in the game their data is stored into a two dimensional array and replaced with special symbols for the graphical interface :
 
 | Data in the Matrix | Symbol | Description |
 | :---: | :---: | :---: |
@@ -69,7 +69,7 @@ Here is the list of possible interactions :
 
 1. The player cannot go through impassable obstacles.
 2. The player can collect birds and the score increases.
-3. When to ball touches the player his health points decrease.
+3. When the ball touches the player his health points decrease.
 4. The ball bounces off obstacles, birds, teleportation blocks and the player if he still has enough health points.
 5. When a player touches teleportation block number 1 he is transported near teleportation block number 2 and vice versa.
 
@@ -135,4 +135,4 @@ ___
 
 * The ball only moves diagonally and can change its direction randomly.
 
-* Besides the standad libraries of the C language, windows.h and conio.h are used for the graphical user interface which makes this game only work on Microsoft Windows.
+* Besides the standard libraries of the C language, windows.h and conio.h are used for the graphical user interface which makes this game only work on Microsoft Windows.
