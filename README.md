@@ -27,7 +27,7 @@ ___
 
 In order to handle interaction between the different entities in the game their data is stored into a two dimensional array and replaced with spacial symbols for the graphical interface :
 
-| Data in the matrix | Symbol | Description |
+| Data in the Matrix | Symbol | Description |
 | :---: | :---: | :---: |
 | 0 | \[space\] | Empty space. |
 | 1 | ☻  | Player. |
