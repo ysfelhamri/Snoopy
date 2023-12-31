@@ -3,6 +3,7 @@
 <p align="center">
   <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/9eb63188-710f-4ccf-8392-d65a40a0c1e0">
 </p>
+
 ___
 
 The main idea for this project was to recreate the classic game Snoopy in C.
