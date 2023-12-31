@@ -6,6 +6,8 @@
 
 ___
 
+## Introduction
+
 The main idea for this project was to recreate the classic game Snoopy in C.
 
 
