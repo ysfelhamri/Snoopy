@@ -1,7 +1,7 @@
 <h1 align="center">Snoopy Game in C</h1>
 
 <p align="center">
-  ![Start Menu](https://github.com/ysfelhamri/Snoopy/assets/103438312/9eb63188-710f-4ccf-8392-d65a40a0c1e0)
+  <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/9eb63188-710f-4ccf-8392-d65a40a0c1e0">
 </p>
 ___
 
