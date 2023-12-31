@@ -82,6 +82,8 @@ ___
 
 This is the main menu shown when the game is started
 
+___
+
 <p align="center">
   <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/1cc156be-2035-4fb6-9d63-7e380aa13afd">
 </p>
@@ -91,4 +93,30 @@ This is the start menu. It has three options :
 1. Start the game and go the first level.
 2. View score statistics.
 3. Quit the game.
+
+___
+
+<p align="center">
+  <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/fabdb41e-0a4a-43db-823b-4a70064bddb7">
+</p>
+
+This is the statistics menu. Last attempt score and High score are shown here.
+
+___
+
+<p align="center">
+  <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/564d8f9a-33e2-48c9-8e91-54dfb43512c7">
+</p>
+
+This is the first level of the game. Health, score and time left are shown in the bottom left. Health decreases when the ball touches the player, score increases when the player collects birds and time decreases every second.
+
+>The vertical blocks besides each vertical border also change to represent the passing of time.
+
+The player loses when he has no health left and/or when the time reaches zero and gets sent back to start menu.
+
+The level can be paused.
+
+___
+
+
 
