@@ -14,7 +14,7 @@ The main idea for this project was to recreate the classic game Snoopy in C.
 The focal points while creating this are :
 
 1. Have a play area surronded by borders.
-2. Have a player character that can move in all four directions of the play area.
+2. Have a player character that can move in all the four directions of the play area.
 3. Have collectibles in form of birds.
 4. Have a ball enemy that moves in diagonals pseudo-randomly but has collision physics.
 5. Have impassable obstacles and special blocks.
@@ -33,9 +33,62 @@ In order to handle interaction between the different entities in the game their 
 | Data in the Matrix | Symbol | Description |
 | :---: | :---: | :---: |
 | 0 | \[space\] | Empty space. |
-| 1 | ☻  | Player. |
+| 1 | ☻ | Player. |
 | 2 | # or ▀ or ▄ or █ | Impassable obstacle. |
-| 3 | ♂  | Ball. |
-| 4 | ♫  | Bird. |
+| 3 | ♂ | Ball. |
+| 4 | ♫ | Bird. |
 | 8 | ◙ | Teleportation block number 1. |
 | 9 | ◙ | Teleportation block number 2. |
+
+Here is an example matrix : 
+
+| 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| - | - | - | - | - | - | - |
+| 2 | 4 | 0 | 0 | 0 | 0 | 2 |
+| 2 | 9 | 0 | 1 | 0 | 0 | 2 |
+| 2 | 0 | 2 | 2 | 0 | 0 | 2 |
+| 2 | 0 | 0 | 0 | 0 | 0 | 2 |
+| 2 | 8 | 0 | 0 | 0 | 3 | 2 |
+| 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+
+It is going to be shown as this : 
+
+<pre>
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ♫                         █
+█ ◙           ☻             █
+█          ####             █
+█                           █
+█ ◙                       ♂ █
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+</pre>
+
+> Impassable obstacles are shown as "█" if used as a vertical border, "▄" if used as a horizontal top border, "▀" if used as a horizontal bottom border and "#" otherwise.
+
+Here is the list of possible interactions :
+
+1. The player cannot go through impassable obstacles.
+2. The player can collect birds and the score increases.
+3. When to ball touches the player his health points decrease.
+4. The ball bounces off obstacles, birds, teleportation blocks and the player if he still has enough health points.
+
+___
+
+## Graphical user interface
+
+<p align="center">
+  <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/9eb63188-710f-4ccf-8392-d65a40a0c1e0">
+</p>
+
+This is the main menu shown when the game is started
+
+<p align="center">
+  <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/1cc156be-2035-4fb6-9d63-7e380aa13afd">
+</p>
+
+This is the start menu. It has three options :
+
+1. Start the game and go the first level.
+2. View score statistics.
+3. Quit the game.
+
