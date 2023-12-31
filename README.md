@@ -133,7 +133,7 @@ ___
 
 * The player can move using the arrow keys. `←` `→` `↑` `↓`
 
-* The level can be paused and unpaused by pressing `enter`. Note that pressing `esc` while paused returns to the start menu.
+* The levels can be paused and unpaused by pressing `enter`. Note that pressing `esc` while paused returns to the start menu.
 
 * The ball only moves diagonally and can change its direction randomly.
 
