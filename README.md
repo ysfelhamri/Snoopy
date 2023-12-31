@@ -75,7 +75,7 @@ Here is the list of possible interactions :
 
 ___
 
-## Graphical user interface
+## Graphical User Interface
 
 <p align="center">
   <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/9eb63188-710f-4ccf-8392-d65a40a0c1e0">
