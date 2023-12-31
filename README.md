@@ -71,6 +71,7 @@ Here is the list of possible interactions :
 2. The player can collect birds and the score increases.
 3. When to ball touches the player his health points decrease.
 4. The ball bounces off obstacles, birds, teleportation blocks and the player if he still has enough health points.
+5. When a player touches teleportation block number 1 he is transported near teleportation block number 2 and vice versa.
 
 ___
 
@@ -82,7 +83,6 @@ ___
 
 This is the main menu shown when the game is started
 
-___
 
 <p align="center">
   <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/1cc156be-2035-4fb6-9d63-7e380aa13afd">
@@ -94,7 +94,6 @@ This is the start menu. It has three options :
 2. View score statistics.
 3. Quit the game.
 
-___
 
 <p align="center">
   <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/fabdb41e-0a4a-43db-823b-4a70064bddb7">
@@ -102,7 +101,6 @@ ___
 
 This is the statistics menu. Last attempt score and High score are shown here.
 
-___
 
 <p align="center">
   <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/564d8f9a-33e2-48c9-8e91-54dfb43512c7">
@@ -116,7 +114,25 @@ The player loses when he has no health left and/or when the time reaches zero an
 
 The level can be paused.
 
+
+<p align="center">
+  <img src="https://github.com/ysfelhamri/Snoopy/assets/103438312/817669ce-02a6-451a-8472-6cc5e9eca37c">
+</p>
+
+This the second level of the game. It is loaded after the player collects all the birds in the first level.
+
+Teleportation blocks are used in this level.
+
 ___
 
+## General Notes
 
+* This is a basic implementation of the game and has vast margin for improvement.
 
+* The statistics are stored in an external file.
+
+* The player can move using the arrow keys. `←` `→` `↑` `↓`
+
+* The ball only moves diagonally and can change its direction randomly.
+
+* Besides the standad libraries of the C language, windows.h and conio.h are used for the graphical user interface which makes this game only work on Microsoft Windows.
