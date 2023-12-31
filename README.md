@@ -135,4 +135,4 @@ ___
 
 * The ball only moves diagonally and can change its direction randomly.
 
-* Besides the standard libraries of the C language, windows.h and conio.h are used for the graphical user interface which makes this game only work on Microsoft Windows.
+* Besides the standard libraries of the C language, "windows.h" and "conio.h" header files are used for the graphical user interface which makes this game only work on Microsoft Windows.
