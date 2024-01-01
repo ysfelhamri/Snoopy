@@ -108,7 +108,7 @@ This is the statistics menu. Last attempt score and High score are shown here.
 
 This is the first level of the game. Health, score and time left are shown in the bottom left. Health decreases when the ball touches the player, score increases when the player collects birds and time decreases every second.
 
->The vertical blocks besides each vertical border also change to represent the passing of time.
+>The blocks besides each vertical border also change to represent the passing of time.
 
 The player loses when he has no health left and/or when the time reaches zero and gets sent back to start menu.
 
