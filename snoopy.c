@@ -10,9 +10,17 @@ void delay(float ms)
     while (clock() < start_time + ms)
         ;
 }
+int mat_is_null(int **mat, int n)
+{
+    if(!mat)return 1;
+    int i;
+    for (i = 0; i < n; i++)
+        if (!mat[i])
+            return 1;
+    return 0;
+}
 void goto_print(int x, int y, char *c)
 {
-
     COORD mycoord;
     mycoord.X = y;
     mycoord.Y = x;
@@ -42,6 +50,10 @@ void print_mat(int **mat, int n)
 }
 void init_mat(int **mat, int n)
 {
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     int i, j;
     for (i = 0; i < n; i++)
     {
@@ -57,6 +69,10 @@ void init_mat(int **mat, int n)
 }
 void print_grid(int **mat, int n)
 {
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     int i, j;
     for (i = 0; i < n; i++)
     {
@@ -129,7 +145,10 @@ void print_grid(int **mat, int n)
 }
 void moving_ball(int **mat, int n, int *x, int *y, int *flag, int player_x, int player_y, int *state)
 {
-
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     if (!*flag && !*state)
     {
         if (*x + 1 == player_x && *y + 1 == player_y)
@@ -237,7 +256,10 @@ void moving_ball(int **mat, int n, int *x, int *y, int *flag, int player_x, int 
 }
 void mov_char(int **mat, int n, int *x, int *y, int *out, int *bird_flag, int *tp_flag)
 {
-
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     if (kbhit())
     {
         int direction;
@@ -315,6 +337,10 @@ void mov_char(int **mat, int n, int *x, int *y, int *out, int *bird_flag, int *t
 }
 void game_timer(int **mat, int n, int *time, int *timer_pos, int *dec_flag)
 {
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     if (*time <= 0)
         return;
     --*time;
@@ -350,6 +376,10 @@ int bird_count(int **mat, int n)
 }
 void level_one(int **mat, int n, int *player_x, int *player_y, int *ball_x, int *ball_y)
 {
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     init_mat(mat, n);
     *ball_x = 1;
     *player_x = n / 2 - 1;
@@ -382,6 +412,10 @@ void level_one(int **mat, int n, int *player_x, int *player_y, int *ball_x, int 
 }
 void level_two(int **mat, int n, int *player_x, int *player_y, int *ball_x, int *ball_y)
 {
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     init_mat(mat, n);
     *ball_x = n - 3;
     *player_x = n / 2 - 1;
@@ -518,6 +552,10 @@ void print_menu()
 }
 void pause_reprint(int **mat, int n)
 {
+    if(mat_is_null(mat, n)){
+        printf("NULL ptr!");
+        exit(33);
+    }
     goto_print(n / 2, (n / 2) * 3 - 1, "       ");
     int i;
     for (i = (n / 2) - 1; i < (n / 2) + 7; i++)
@@ -562,35 +600,48 @@ void pause_reprint(int **mat, int n)
 void score_save(int score_reg)
 {
     FILE *score;
+    int error;
     score = fopen("scores.sp", "r+b");
     if (!score)
     {
         score = fopen("scores.sp", "w+b");
-        fwrite(&score_reg, sizeof(int), 1, score);
-        fseek(score, sizeof(int), SEEK_SET);
-        fwrite(&score_reg, sizeof(int), 1, score);
-        fclose(score);
+        if(!score) return;
+        error = fwrite(&score_reg, sizeof(int), 1, score);
+        if(!error) return;
+        error = fseek(score, sizeof(int), SEEK_SET);
+        if(error) return;
+        error = fwrite(&score_reg, sizeof(int), 1, score);
+        if(!error) return;
+        error = fclose(score);
+        if(!error) return;
         return;
     }
     if (!score)
         return;
     int high_score;
-    fseek(score, sizeof(int), SEEK_SET);
-    fread(&high_score, sizeof(int), 1, score);
-
+    error = fseek(score, sizeof(int), SEEK_SET);
+    if(error) return;
+    error = fread(&high_score, sizeof(int), 1, score);
+    if(!error) return;
     if (score_reg > high_score)
     {
-        fseek(score, sizeof(int), SEEK_SET);
-        fwrite(&score_reg, sizeof(int), 1, score);
+        error = fseek(score, sizeof(int), SEEK_SET);
+        if(error) return;
+        error = fwrite(&score_reg, sizeof(int), 1, score);
+        if(!error) return;
     }
-    fseek(score, 0, SEEK_SET);
-    fwrite(&score_reg, sizeof(int), 1, score);
+    error = fseek(score, 0, SEEK_SET);
+    if(error) return;
+    error = fwrite(&score_reg, sizeof(int), 1, score);
+    if(!error) return;
 
-    fclose(score);
+    error= fclose(score);
+    if(!error) return;
 }
 void read_save(int *last_score, int *high_score)
 {
     FILE *score;
+    int error;
     score = fopen("scores.sp", "rb");
     if (!score)
     {
@@ -598,9 +649,14 @@ void read_save(int *last_score, int *high_score)
         *high_score = 0;
         return;
     }
-    fread(last_score, sizeof(int), 1, score);
-    fseek(score, sizeof(int), SEEK_SET);
-    fread(high_score, sizeof(int), 1, score);
+    error = fread(last_score, sizeof(int), 1, score);
+    if(!error) return;
+    error =fseek(score, sizeof(int), SEEK_SET);
+    if(error) return;
+    error = fread(high_score, sizeof(int), 1, score);
+    if(!error) return;
+    error= fclose(score);
+    if(!error) return;
 }
 void print_options();
 void stats_menu()
@@ -711,6 +767,7 @@ void print_options()
             break;
     }
 }
+
 int main()
 {
     srand(time(NULL));
@@ -724,9 +781,17 @@ int main()
     int tp_flag = 0, p1_x, p2_x, p1_y, p2_y;
     SetConsoleOutputCP(CP_UTF8);
     int **grid = (int **)malloc(n * sizeof(int *));
-    for (i = 0; i < n; i++)
+    if(!grid){
+        printf("Mem alloc error!");
+        exit(33);
+    }
+    for (i = 0; i < n; i++){
         grid[i] = (int *)malloc(n * sizeof(int));
-
+        if(!grid[i]){
+            printf("Mem alloc error!");
+            exit(33);
+        }
+    }
     float ball_delay = clock() + ball_ms;
     float timer_ms = 1000;
     float timer_delay = clock() + timer_ms;
@@ -1034,6 +1099,8 @@ int main()
                 }
         }
     }
-
+    for (i = 0; i < n; i++)
+        free(grid[i]);
+    free(grid);
     return 0;
 }
